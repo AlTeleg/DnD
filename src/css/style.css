@@ -2,6 +2,7 @@ body, html {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .desk {
@@ -27,7 +28,6 @@ body, html {
     border-radius: 5px;
     font-family: Helvetica, sans-serif;
     box-sizing: border-box;
-    /* position: relative; */
     align-items: stretch;
     overflow-y:scroll;
     overflow-x: visible;
@@ -40,7 +40,6 @@ body, html {
 }
 
 .add-div {
-    /* position:relative; */
     display: flex;
     flex-direction: row;
     margin: 8px 8px;
