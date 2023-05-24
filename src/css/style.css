@@ -119,7 +119,6 @@ img {
     flex-wrap: wrap;
     width: 100%;
     z-index: 999;
-    /* visibility: hidden; */
     display: none;
     bottom: 0px;
     left: 0px;

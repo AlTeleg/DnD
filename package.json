@@ -15,7 +15,7 @@
     "preshow:dist": "npm run build",
     "show:dist": "live-server dist"
   },
-  "repository": "https://github.com/AlTeleg/Files.git",
+  "repository": "https://github.com/AlTeleg/DnD.git",
   "author": "alteleg",
   "license": "ISC",
   "bugs": {
