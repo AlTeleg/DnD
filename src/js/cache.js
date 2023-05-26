@@ -10,7 +10,10 @@ const startCashe = () => {
           "close-cross"
         )
       ) {
-        cardData[cardsArray.indexOf(card)] = [card.parentElement.id, card.firstElementChild.textContent];
+        cardData[cardsArray.indexOf(card)] = [
+          card.parentElement.id,
+          card.firstElementChild.textContent,
+        ];
       } else {
         cardData[cardsArray.indexOf(card)] = [
           card.parentElement.id,
@@ -39,7 +42,7 @@ const startCashe = () => {
           cardData[key][1]
         );
         card.toColumn();
-        console.log(cardData[key][2])
+        console.log(cardData[key][2]);
         if (cardData[key][2]) {
           const cardContentImg = document.createElement("img");
           cardContentImg.style.alignSelf = "center";
@@ -49,7 +52,7 @@ const startCashe = () => {
           card.thisElement.insertBefore(
             cardContentImg,
             card.thisElement.firstChild.nextElementSibling
-          );    
+          );
         }
       });
     }
