@@ -166,37 +166,37 @@ export default class Card {
       }
     });
 
-    // window.addEventListener('beforeunload', () => {
-    //   const cardData = {};
-    //   const cardsArray = Array.from(document.querySelectorAll('.card'));
-    //   cardsArray.forEach(card => {
-    //     if (card.firstElementChild.nextElementSibling.classList.contains('close-cross')) {
-    //       cardData[card.parentElement] = card.firstChild.value;
-    //     } else {
-    //       cardData[card.parentElement] = [card.firstChild.value, card.firstElementChild.nextElementSibling.value];
-    //     }
-    //     localStorage.setItem('cardData', cardData)
-    //   })
-    // })
+    window.addEventListener('beforeunload', () => {
+      const cardData = {};
+      const cardsArray = Array.from(document.querySelectorAll('.card'));
+      cardsArray.forEach(card => {
+        if (card.firstElementChild.nextElementSibling.classList.contains('close-cross')) {
+          cardData[card.parentElement.name] = card.firstChild.value;
+        } else {
+          cardData[card.parentElement.name] = [card.firstChild.value, card.firstElementChild.nextElementSibling.value];
+        }
+        localStorage.setItem('cardData', cardData)
+      })
+    })
 
-    // document.addEventListener('DOMContentLoaded', () => {
-    //   const json = localStorage.getItem('cardData');
-    //   console.log(1)
-    //   let cardData;
+    document.addEventListener('DOMContentLoaded', () => {
+      const json = localStorage.getItem('cardData');
+      console.log(1);
+      let cardData;
 
-    //   try {
-    //     cardData = JSON.parse(json)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
+      try {
+        cardData = JSON.parse(json)
+      } catch (error) {
+        console.log(error)
+      }
+      console.log(cardData)
+      if (cardData) {
+        Object.keys(cardData).forEach(key => {
+          const card = new Card(document.querySelector(`[name=${key}]`), cardData[key])
+          card.toColumn();
+        })
 
-    //   if (cardData) {
-    //     Object.keys(cardData).forEach(key => {
-    //       console.log(key)
-    //       document.querySelector(`[name=${key}]`)
-    //     })
-
-    //   }
-    // })
+      }
+    })
   }
 }

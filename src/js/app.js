@@ -1,13 +1,7 @@
 import Desk from "./desk";
+import startCashe from "./cache";
 
 const desk = new Desk();
 desk.toDom();
+startCashe();
 
-const addDiv = document.querySelector(".add-div");
-
-addDiv.addEventListener("hover", () => {
-  Array.from(addDiv.children).forEach(
-    (child) => (child.style.textDecoration = "underline")
-  );
-  addDiv.style.cursor = "pointer";
-});
