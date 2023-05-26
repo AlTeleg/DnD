@@ -1,7 +1,5 @@
 import Card from "./card";
 
-// Доделываю понемногу, пока поведение не идеальное
-
 const startCashe = () => {
   window.addEventListener("beforeunload", () => {
     const cardData = {};
