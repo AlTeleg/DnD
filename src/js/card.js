@@ -21,7 +21,6 @@ export default class Card {
     closeCrossElement.classList.add("close-cross");
     div.appendChild(menuElement);
     menuElement.classList.add("card-icon");
-    closeCrossElement.classList.add("menu-cross");
     closeCrossElement.src = closeCross;
     menuElement.src = menuPost;
     this.column.insertBefore(
@@ -166,5 +165,38 @@ export default class Card {
         );
       }
     });
+
+    window.addEventListener('beforeunload', () => {
+      const cardData = {};
+      const cardsArray = Array.from(document.querySelectorAll('.card'));
+      cardsArray.forEach(card => {
+        console.log(card)
+        if (card.firstElementChild.nextElementSibling.classList.contains('close-cross')) {
+          cardData[card.parentElement] = card.firstChild.value;
+        } else {
+          cardData[card.parentElement] = [card.firstChild.value, card.firstElementChild.nextElementSibling.value];
+        }
+        localStorage.setItem('cardData', cardData)
+      })
+    })
+    document.addEventListener('DOMContentLoaded', () => {
+      const json = localStorage.getItem('cardData');
+      console.log(1)
+      let cardData;
+
+      try {
+        cardData = JSON.parse(json)
+      } catch (error) {
+        console.log(error)
+      }
+
+      if (cardData) {
+        Object.keys(cardData).forEach(key => {
+          console.log(key)
+          document.querySelector(`[name=${key}]`)
+        })
+
+      }
+    })
   }
 }

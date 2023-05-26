@@ -71,16 +71,11 @@ img {
 }
 
 .close-cross {
-    position: relative;
+    position: absolute;
     z-index: 1000;
     right: 0px;
     top: 0px;
     visibility: hidden;
-    margin-bottom: 100px;
-}
-
-.menu-cross {
-    position: absolute;
 }
 
 .card {
@@ -111,6 +106,7 @@ img {
 
 .card-title {
     margin: 8px 5px;
+    word-break: break-all;
 }
 
 .add-card {
