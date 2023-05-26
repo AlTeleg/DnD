@@ -1,6 +1,6 @@
 import Card from "./card";
 
-// Доделываю понемногу, пока поведение не идеально
+// Доделываю понемногу, пока поведение не идеальное
 
 const startCashe = () => {
   window.addEventListener("beforeunload", () => {
@@ -14,7 +14,7 @@ const startCashe = () => {
       ) {
         cardData[cardsArray.indexOf(card)] = [card.parentElement.id, card.firstElementChild.textContent];
       } else {
-        cardData[card.parentElement.id] = [
+        cardData[cardsArray.indexOf(card)] = [
           card.parentElement.id,
           card.firstChild.textContent,
           card.firstElementChild.nextElementSibling.src,
@@ -41,6 +41,7 @@ const startCashe = () => {
           cardData[key][1]
         );
         card.toColumn();
+        console.log(cardData[key][2])
         if (cardData[key][2]) {
           const cardContentImg = document.createElement("img");
           cardContentImg.style.alignSelf = "center";
