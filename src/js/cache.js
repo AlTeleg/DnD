@@ -7,7 +7,6 @@ const startCashe = () => {
     const cardData = {};
     const cardsArray = Array.from(document.querySelectorAll(".card"));
     cardsArray.forEach((card) => {
-      console.log(card.parentElement.id);
       if (
         card.firstElementChild.nextElementSibling.classList.contains(
           "close-cross"

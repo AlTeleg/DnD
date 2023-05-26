@@ -107,7 +107,6 @@ export default class Card {
             this.dragEl.classList.remove("dragged");
             mouseUpItem.replaceWith(this.dragEl);
           } else {
-            console.log(this.dragEl);
             this.dragEl.classList.remove("dragged");
             this.dragEl.style.top = 0 + "px";
             this.dragEl.style.left = 0 + "px";
@@ -166,46 +165,6 @@ export default class Card {
       }
     });
 
-    window.addEventListener("beforeunload", () => {
-      const cardData = {};
-      const cardsArray = Array.from(document.querySelectorAll(".card"));
-      cardsArray.forEach((card) => {
-        if (
-          card.firstElementChild.nextElementSibling.classList.contains(
-            "close-cross"
-          )
-        ) {
-          cardData[card.parentElement.name] = card.firstChild.value;
-        } else {
-          cardData[card.parentElement.name] = [
-            card.firstChild.value,
-            card.firstElementChild.nextElementSibling.value,
-          ];
-        }
-        localStorage.setItem("cardData", cardData);
-      });
-    });
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const json = localStorage.getItem("cardData");
-      console.log(1);
-      let cardData;
-
-      try {
-        cardData = JSON.parse(json);
-      } catch (error) {
-        console.log(error);
-      }
-      console.log(cardData);
-      if (cardData) {
-        Object.keys(cardData).forEach((key) => {
-          const card = new Card(
-            document.querySelector(`[name=${key}]`),
-            cardData[key]
-          );
-          card.toColumn();
-        });
-      }
-    });
   }
 }
