@@ -14,8 +14,8 @@ export default class Desk {
     this.toDoColumn.addToDesk();
     this.inProgressColumn.addToDesk();
     this.doneColumn.addToDesk();
-    this.toDoColumn.column.id = '1';
-    this.inProgressColumn.column.id = '2';
-    this.doneColumn.column.id = '3';
+    this.toDoColumn.column.id = "1";
+    this.inProgressColumn.column.id = "2";
+    this.doneColumn.column.id = "3";
   }
 }
