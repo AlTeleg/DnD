@@ -9,10 +9,10 @@ export default class Card {
 
   toColumn() {
     const div = document.createElement("div");
+    this.thisElement = div;
     const closeCrossElement = document.createElement("img");
     const menuElement = document.createElement("img");
     const cardContentTitle = document.createElement("div");
-
     div.classList.add("card");
     div.appendChild(cardContentTitle);
     cardContentTitle.textContent = this.title;
@@ -150,6 +150,7 @@ export default class Card {
             e.dataTransfer.files[0].name;
         }
         const cardContentImg = document.createElement("img");
+        this.cardImg = cardContentImg;
         e.target
           .closest(".card")
           .insertBefore(
