@@ -12,7 +12,10 @@ const startCashe = () => {
           "close-cross"
         )
       ) {
-        cardData[cardsArray.indexOf(card)] = [card.parentElement.id, card.firstElementChild.textContent];
+        cardData[cardsArray.indexOf(card)] = [
+          card.parentElement.id,
+          card.firstElementChild.textContent,
+        ];
       } else {
         cardData[card.parentElement.id] = [
           card.parentElement.id,
@@ -49,9 +52,8 @@ const startCashe = () => {
           card.thisElement.insertBefore(
             cardContentImg,
             card.thisElement.firstChild.nextElementSibling
-          );    
+          );
         }
-
       });
     }
   });

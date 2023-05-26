@@ -165,7 +165,5 @@ export default class Card {
         );
       }
     });
-
-
   }
 }
