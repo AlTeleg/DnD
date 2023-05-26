@@ -1,6 +1,6 @@
 import Card from "./card";
 
-// Доделываю
+// Доделываю понемногу
 
 const startCashe = () => {
   window.addEventListener("beforeunload", () => {
@@ -20,7 +20,6 @@ const startCashe = () => {
           card.firstElementChild.nextElementSibling.src,
         ];
       }
-      console.log(JSON.stringify(JSON.stringify(cardData)))
       localStorage.setItem("cardData", JSON.stringify(cardData));
     });
   });
@@ -47,7 +46,6 @@ const startCashe = () => {
           cardContentImg.classList.add("card-img");
           cardContentImg.style.filter = "opacity(1)";
           cardContentImg.src = cardData[key][2];
-          console.log(card.thisElement.firstChild.nextElementSibling)
           card.thisElement.insertBefore(
             cardContentImg,
             card.thisElement.firstChild.nextElementSibling
