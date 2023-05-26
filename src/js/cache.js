@@ -12,10 +12,7 @@ const startCashe = () => {
           "close-cross"
         )
       ) {
-        cardData[cardsArray.indexOf(card)] = [
-          card.parentElement.id,
-          card.firstElementChild.textContent,
-        ];
+        cardData[cardsArray.indexOf(card)] = [card.parentElement.id, card.firstElementChild.textContent];
       } else {
         cardData[card.parentElement.id] = [
           card.parentElement.id,
@@ -36,6 +33,7 @@ const startCashe = () => {
     } catch (error) {
       console.log(error);
     }
+    
     if (cardData) {
       Object.keys(cardData).forEach((key) => {
         const card = new Card(
@@ -52,7 +50,7 @@ const startCashe = () => {
           card.thisElement.insertBefore(
             cardContentImg,
             card.thisElement.firstChild.nextElementSibling
-          );
+          );    
         }
       });
     }
