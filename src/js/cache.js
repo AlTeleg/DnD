@@ -36,7 +36,7 @@ const startCashe = () => {
     if (cardData) {
       Object.keys(cardData).forEach((key) => {
         const card = new Card(
-          document.querySelector(`#'${key}'`),
+          document.querySelector(`#${key}`),
           cardData[key]
         );
         card.toColumn();
