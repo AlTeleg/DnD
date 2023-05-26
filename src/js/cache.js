@@ -1,6 +1,6 @@
 import Card from "./card";
 
-// Доделываю понемногу
+// Доделываю понемногу, пока поведение не идеально
 
 const startCashe = () => {
   window.addEventListener("beforeunload", () => {
@@ -33,7 +33,7 @@ const startCashe = () => {
     } catch (error) {
       console.log(error);
     }
-    
+
     if (cardData) {
       Object.keys(cardData).forEach((key) => {
         const card = new Card(
