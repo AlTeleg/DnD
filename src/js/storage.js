@@ -1,6 +1,6 @@
 import Card from "./card";
 
-const startCashe = () => {
+const initStorage = () => {
   window.addEventListener("beforeunload", () => {
     const cardData = {};
     const cardsArray = Array.from(document.querySelectorAll(".card"));
