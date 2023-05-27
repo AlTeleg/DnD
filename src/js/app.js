@@ -1,5 +1,5 @@
 import Desk from "./desk";
-import startCashe from "./storage";
+import initStorage from "./storage";
 
 const desk = new Desk();
 desk.toDom();

@@ -42,7 +42,6 @@ const initStorage = () => {
           cardData[key][1]
         );
         card.toColumn();
-        console.log(cardData[key][2]);
         if (cardData[key][2]) {
           const cardContentImg = document.createElement("img");
           cardContentImg.style.alignSelf = "center";
@@ -58,4 +57,4 @@ const initStorage = () => {
     }
   });
 };
-export default startCashe;
+export default initStorage;
