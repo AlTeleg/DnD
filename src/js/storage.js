@@ -1,7 +1,12 @@
 const initStorageCards = (controller) => {
   window.addEventListener("beforeunload", () => {
+
     const cardData = {};
     const cardsArray = Array.from(document.querySelectorAll(".card"));
+    console.log(cardsArray)
+    if (cardsArray.length === 0) {
+      localStorage.setItem("cardData", '')
+    }
     cardsArray.forEach((card) => {
       if (
         card.firstElementChild.nextElementSibling.classList.contains(
