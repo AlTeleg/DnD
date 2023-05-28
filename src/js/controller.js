@@ -110,7 +110,7 @@ export default class Controller {
   onColumnAddCardInputKeydown = (e) => {
     if (e.key === "Enter") {
       const card = new Card();
-      card.cardElement(e.target.value);
+      card.createElement(e.target.value);
       card.toColumn(e.target.closest(".column"));
       this.addCardEvenlisteners(card);
       e.target.value = "";
