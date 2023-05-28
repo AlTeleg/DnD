@@ -124,12 +124,19 @@ img {
 .add-card_buton {
     background-color: #5ca84d;
     height: 40px;
+    width: 90px;
     border-radius: 5px;
     color: rgb(232,243,230);
     border: none;
     text-align: top;
-    margin: 8px 5px;
+    margin: 12px 10px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+    .add-card_buton {
+        width: 50px;
+    }
 }
 
 .add-card_input {
