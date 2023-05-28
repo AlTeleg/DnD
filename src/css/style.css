@@ -166,7 +166,7 @@ img {
 
 .shade {
    margin: 8px 0;
-   background-color: white;
+   background-color: rgb(225, 232, 235);
 }
 
 .shade:hover {

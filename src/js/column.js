@@ -1,6 +1,5 @@
 import plus from "../img/plus.png";
 import menu from "../img/menu.png";
-import Card from "./card";
 import menuAdd from "../img/menu.png";
 import closeCross from "../img/close_cross.png";
 
@@ -9,114 +8,55 @@ export default class Column {
     this.title = title;
   }
 
-  addToDesk() {
-    const column = document.createElement("DIV");
-    this.column = column;
-    const title = document.createElement("P");
-    const menuImg = document.createElement("img");
-    const header = document.createElement("div");
-    const addDiv = document.createElement("div");
-    const addCardDiv = document.createElement("div");
-    const addCardInput = document.createElement("textarea");
-    const addCardButton = document.createElement("button");
-    const addCardCross = document.createElement("img");
-    const addCardMenu = document.createElement("img");
-    const plusImg = document.createElement("img");
-    const plusText = document.createElement("p");
-    addCardDiv.appendChild(addCardInput);
-    addCardDiv.appendChild(addCardButton);
-    addCardDiv.appendChild(addCardCross);
-    addCardDiv.appendChild(addCardMenu);
-    menuImg.classList.add("menu-img");
-    addCardButton.classList.add("add-card_buton");
-    addCardInput.classList.add("add-card_input");
-    addCardMenu.classList.add("add-card_menu");
-    addCardCross.classList.add("add-card_cross");
-    addCardInput.placeholder = "Enter a title for this card...";
+  createElement() {
+    this.columnElement = document.createElement("DIV");
+    this.titleElement = document.createElement("P");
+    this.menuImg = document.createElement("img");
+    this.header = document.createElement("div");
+    this.addDiv = document.createElement("div");
+    this.addCardDiv = document.createElement("div");
+    this.addCardInput = document.createElement("textarea");
+    this.addCardButton = document.createElement("button");
+    this.addCardCross = document.createElement("img");
+    this.addCardMenu = document.createElement("img");
+    this.plusImg = document.createElement("img");
+    this.plusText = document.createElement("p");
+    this.addCardDiv.appendChild(this.addCardInput);
+    this.addCardDiv.appendChild(this.addCardButton);
+    this.addCardDiv.appendChild(this.addCardCross);
+    this.addCardDiv.appendChild(this.addCardMenu);
+    this.menuImg.classList.add("menu-img");
+    this.addCardButton.classList.add("add-card_buton");
+    this.addCardInput.classList.add("add-card_input");
+    this.addCardMenu.classList.add("add-card_menu");
+    this.addCardCross.classList.add("add-card_cross");
+    this.addCardInput.placeholder = "Enter a title for this card...";
+    this.addCardButton.textContent = "Add card";
+    this.addCardCross.src = closeCross;
+    this.addCardMenu.src = menuAdd;
+    this.addCardDiv.classList.add("add-card");
+    this.plusText.textContent = "Add another card";
+    this.columnElement.classList.add("column");
+    this.titleElement.textContent = this.title;
+    this.titleElement.classList.add("header-title");
+    this.addDiv.appendChild(this.plusImg);
+    this.addDiv.appendChild(this.plusText);
+    this.addDiv.classList.add("add-div");
+    this.plusImg.src = plus;
+    this.header.classList.add("header");
+    this.header.appendChild(this.titleElement);
+    this.menuImg.src = menu;
+    this.header.appendChild(this.menuImg);
+    this.columnElement.appendChild(this.header);
+    this.columnElement.appendChild(this.addDiv);
+    this.columnElement.appendChild(this.addCardDiv);
+  }
 
-    addCardButton.textContent = "Add card";
-    addCardCross.src = closeCross;
-    addCardMenu.src = menuAdd;
-    addCardDiv.classList.add("add-card");
-    const desk = document.querySelector(".desk");
-    plusText.textContent = "Add another card";
-    column.classList.add("column");
-    title.textContent = this.title;
-    title.classList.add("header-title");
+  deleteElement() {
+    this.columnElement.remove();
+  }
 
-    addDiv.appendChild(plusImg);
-    addDiv.appendChild(plusText);
-    addDiv.classList.add("add-div");
-    plusImg.src = plus;
-    header.classList.add("header");
-    header.appendChild(title);
-    menuImg.src = menu;
-    header.appendChild(menuImg);
-    column.appendChild(header);
-    column.appendChild(addDiv);
-    column.appendChild(addCardDiv);
-    desk.appendChild(column);
-
-    plusImg.addEventListener("mouseover", () => {
-      plusText.style.textDecoration = "underline";
-      plusText.style.cursor = "pointer";
-      plusImg.style.cursor = "pointer";
-    });
-
-    plusImg.addEventListener("mouseout", () => {
-      plusText.style.textDecoration = "none";
-    });
-
-    plusText.addEventListener("mouseover", () => {
-      plusText.style.textDecoration = "underline";
-      plusText.style.cursor = "pointer";
-      plusImg.style.cursor = "pointer";
-    });
-
-    plusText.addEventListener("mouseout", () => {
-      plusText.style.textDecoration = "none";
-    });
-
-    plusText.addEventListener("click", () => {
-      if (window.getComputedStyle(addCardDiv).display == "none") {
-        addCardDiv.style.display = "block";
-        addDiv.style.visibility = "hidden";
-      } else {
-        addCardDiv.style.display = "none";
-        addDiv.style.visibility = "visible";
-      }
-    });
-
-    plusImg.addEventListener("click", () => {
-      if (window.getComputedStyle(addCardDiv).display == "none") {
-        addCardDiv.style.display = "block";
-        addDiv.style.visibility = "hidden";
-      } else {
-        addCardDiv.style.display = "none";
-        addDiv.style.visibility = "visible";
-      }
-    });
-
-    addCardCross.addEventListener("click", () => {
-      addCardDiv.style.display = "none";
-      addDiv.style.visibility = "visible";
-    });
-
-    addCardButton.addEventListener("click", () => {
-      const card = new Card(this.column, addCardInput.value);
-      card.toColumn();
-      addCardInput.value = "";
-      addCardDiv.style.display = "none";
-      addDiv.style.visibility = "visible";
-    });
-    addCardInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        const card = new Card(this.column, addCardInput.value);
-        card.toColumn();
-        addCardInput.value = "";
-        addCardDiv.style.display = "none";
-        addDiv.style.visibility = "visible";
-      }
-    });
+  toDesk(desk) {
+    desk.appendChild(this.columnElement);
   }
 }

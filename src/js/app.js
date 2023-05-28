@@ -1,6 +1,7 @@
-import Desk from "./desk";
-import initStorage from "./storage";
+import Controller from "./controller";
+import initStorageCards from "./storage";
 
-const desk = new Desk();
-desk.toDom();
-initStorage();
+const controller = new Controller();
+controller.toDOM();
+controller.addStaticEventListeners();
+initStorageCards(controller);
