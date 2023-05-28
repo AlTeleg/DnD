@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: Helvetica, sans-serif;
 }
 
 .desk {
@@ -26,7 +27,6 @@ body, html {
     min-height: 30%;
     background-color: rgb(222,226,229);
     border-radius: 5px;
-    font-family: Helvetica, sans-serif;
     box-sizing: border-box;
     align-items: stretch;
     overflow-y:scroll;
@@ -131,6 +131,7 @@ img {
     text-align: top;
     margin: 12px 10px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 @media screen and (max-width: 640px) {
