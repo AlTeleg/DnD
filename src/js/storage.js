@@ -1,4 +1,5 @@
 const initStorageCards = (controller) => {
+  
   window.addEventListener("beforeunload", () => {
 
     const cardData = {};
