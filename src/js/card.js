@@ -25,4 +25,8 @@ export default class Card {
       column.lastElementChild.previousElementSibling
     );
   }
+
+  deleteElement() {
+    this.cardElement.remove();
+  }
 }
