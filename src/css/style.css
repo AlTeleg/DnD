@@ -96,6 +96,7 @@ img {
     height: 100%;
     padding: 0;
     margin-left: 4px;
+    margin-bottom: 5px;
     cursor: grab;
     display: block;
 }
