@@ -142,7 +142,8 @@ export default class Controller {
   onDocMouseDown = (e) => {
     if (
       e.target.classList.contains("card") ||
-      e.target.classList.contains("card-img")
+      e.target.classList.contains("card-img") ||
+      e.target.classList.contains("card-title")
     ) {
       e.target.classList.contains("card")
         ? (this.dragEl = e.target)
